@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kasir/app/modules/pembayaran/views/cash.dart';
 import 'package:kasir/app/modules/pembayaran/views/cashless.dart';
+import 'package:kasir/app/modules/pembayaran/views/splitbill.dart';
 import 'package:kasir/app/utils/constant.dart';
 
 import '../controllers/pembayaran_controller.dart';
@@ -66,7 +67,7 @@ class PembayaranView extends GetView<PembayaranController> {
                   Navigator.pop(context); // Tutup pop-up setelah pembayaran
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => CashLessView()),
+                    MaterialPageRoute(builder: (context) => SplitBillView()),
                   );
                 },
                 child: Text(
@@ -110,9 +111,9 @@ class PembayaranView extends GetView<PembayaranController> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      _buildInfoRow('No. Meja', '01'),
-                      _buildInfoRow('Nama', 'Saka'),
-                      _buildInfoRow('Total', '10.000'),
+                      _buildInfoRow('No. Meja : ', '01'),
+                      _buildInfoRow('Nama : ', 'Saka'),
+                      _buildInfoRow('Total : ', '10.000'),
                     ],
                   ),
                 ),
