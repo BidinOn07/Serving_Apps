@@ -46,19 +46,27 @@ class CashView extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            width: double.infinity, // Membuat tombol memenuhi lebar layar
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: ElevatedButton(
-              onPressed: () {
+          Material(
+            color: kColorPrimary,
+            borderRadius: BorderRadius.circular(10),
+            child: InkWell(
+              onTap: () {
                 _nextPaymentOptions(context); // Menampilkan pop-up pembayaran
               },
-              child: Text(
-                'Sudah Dibayar',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: kColorPrimary,
-                  fontWeight: FontWeight.bold,
+              borderRadius: BorderRadius.circular(10),
+              child: Container(
+                // width: 350,
+                width: double.infinity, // Membuat tombol memenuhi lebar layar
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                child: Text(
+                  'Sudah Dibayar',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.bold,
+                    color: kColor,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ),

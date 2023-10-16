@@ -36,7 +36,10 @@ class IntroductionView extends GetView<IntroductionController> {
         ),
       ],
       showSkipButton: true,
-      skip: const Icon(Icons.skip_next),
+      skip: const Text(
+        "Skip",
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
       next: const Text(
         "Next",
         style: TextStyle(fontWeight: FontWeight.bold),

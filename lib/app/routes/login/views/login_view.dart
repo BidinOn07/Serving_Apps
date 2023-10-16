@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:kasir/app/utils/constant.dart';
+import 'package:kasir/app/utils/mainpage.dart';
 
 import '../../../modules/home/views/home_view.dart';
 import '../controllers/login_controller.dart';
@@ -17,7 +19,7 @@ class LoginView extends GetView<LoginController> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.all(10),
-        color: Colors.green,
+        color: kColorPrimary,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -36,9 +38,7 @@ class LoginView extends GetView<LoginController> {
             const Text(
               'LOGIN',
               style: TextStyle(
-                  fontSize: 40,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w200),
+                  fontSize: 40, color: kColor, fontWeight: FontWeight.w200),
               textAlign: TextAlign.center,
             ),
             const SizedBox(
@@ -48,7 +48,7 @@ class LoginView extends GetView<LoginController> {
               'EMAIL',
               style: TextStyle(
                   fontSize: 24,
-                  color: Colors.white,
+                  color: kColor,
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.w700),
             ),
@@ -64,7 +64,7 @@ class LoginView extends GetView<LoginController> {
                     fontStyle: FontStyle.italic,
                     fontFamily: 'Roboto',
                     fontWeight: FontWeight.w300,
-                    color: Colors.white),
+                    color: kColor),
               ),
             ),
             const SizedBox(
@@ -74,7 +74,7 @@ class LoginView extends GetView<LoginController> {
               'PASSWORD',
               style: TextStyle(
                   fontSize: 24,
-                  color: Colors.white,
+                  color: kColor,
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.w700),
             ),
@@ -84,7 +84,7 @@ class LoginView extends GetView<LoginController> {
                 decoration: InputDecoration(
                   // border: OutlineInputBorder(),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
+                    borderSide: BorderSide(color: kColor),
                   ),
                   hintText: "Masukan Password",
                   hintStyle: TextStyle(
@@ -92,7 +92,7 @@ class LoginView extends GetView<LoginController> {
                       fontStyle: FontStyle.italic,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w300,
-                      color: Colors.white),
+                      color: kColor),
                   suffixIcon: InkWell(
                       onTap: () {
                         controller.showPassword.value =
@@ -102,7 +102,7 @@ class LoginView extends GetView<LoginController> {
                           controller.showPassword.value
                               ? Icons.visibility
                               : Icons.visibility_off,
-                          color: Colors.white)),
+                          color: kColor)),
                 ),
               );
             }),
@@ -110,27 +110,30 @@ class LoginView extends GetView<LoginController> {
               height: 20,
             ),
             Material(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(5),
+              color: kColor,
+              borderRadius: BorderRadius.circular(10),
               child: InkWell(
                 onTap: () {
-                  Get.to(() => HomeView());
+                  Get.to(() => MainPage());
                 },
                 borderRadius: BorderRadius.circular(5),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: 10,
-                    horizontal: 20,
-                  ),
-                  child: Text(
-                    'LOGIN',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w800,
-                      color: Colors.green,
+                child: Container(
+                  width: 350,
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 10,
+                      horizontal: 20,
                     ),
-                    textAlign: TextAlign.center,
+                    child: Text(
+                      'LOGIN',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w800,
+                        color: kColorPrimary,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
               ),

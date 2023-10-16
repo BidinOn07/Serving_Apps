@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:kasir/app/modules/laporan/views/laporan_view.dart';
 
@@ -38,9 +37,9 @@ class _MainPageState extends State<MainPage> {
         buttonBackgroundColor: kColorPrimary,
         height: 70,
         items: <Widget>[
-          Icon(EvaIcons.bookOpenOutline, size: 30, color: Colors.white),
-          Icon(EvaIcons.bookOutline, size: 30, color: Colors.white),
-          Icon(EvaIcons.bookOpen, size: 30, color: Colors.white),
+          Icon(Icons.list_alt_outlined, size: 30, color: Colors.white),
+          Icon(Icons.book_outlined, size: 30, color: Colors.white),
+          Icon(Icons.menu_book_outlined, size: 30, color: Colors.white),
           //item sesuai kebutuhan
         ],
         onTap: (int index) {

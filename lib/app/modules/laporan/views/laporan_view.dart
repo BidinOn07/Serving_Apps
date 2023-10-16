@@ -181,7 +181,7 @@ class LaporanView extends GetView<LaporanController> {
                           onTap: () {},
                           borderRadius: BorderRadius.circular(10),
                           child: Container(
-                            width: 350,
+                            width: double.infinity,
                             padding: EdgeInsets.symmetric(
                               vertical: 10,
                               horizontal: 20,

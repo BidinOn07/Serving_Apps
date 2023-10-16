@@ -1,13 +1,11 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, must_be_immutable
 
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart' hide Badge;
 
 import 'package:get/get.dart';
-import 'package:kasir/app/modules/pembayaran/views/pembayaran_view.dart';
+import 'package:kasir/app/modules/detail-menu/views/detail_menu_view.dart';
 import 'package:kasir/app/utils/constant.dart';
 import '../controllers/home_controller.dart';
-import 'orderitemsample.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
@@ -18,7 +16,7 @@ class HomeView extends GetView<HomeController> {
         children: [
           HomeAppBar(),
           Container(
-            // height: 800,
+            // height: 700,
             padding: EdgeInsets.only(top: 15),
             decoration: BoxDecoration(
               color: Color(0xFFEDECF2),
@@ -29,72 +27,29 @@ class HomeView extends GetView<HomeController> {
             ),
             child: Column(
               children: [
-                OrderItemSample(),
-                Container(
-                  // decoration: BoxDecoration(
-                  //   borderRadius: BorderRadius.circular(10),
-                  // ),
-                  margin: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-                  padding: EdgeInsets.all(10),
-                  child: Row(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: kColorPrimary,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            EvaIcons.plusCircleOutline,
-                            color: kColor,
-                            size: 30,
-                          ),
+                Card(
+                  child: ListTile(
+                    onTap: () {
+                      Get.to(() => DetailMenuView());
+                    },
+                    leading: CircleAvatar(
+                      child: Text(
+                        'Meja 1',
+                        style: TextStyle(
+                          color: kColor,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12,
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        child: Text(
-                          'Masukkan Diskon',
-                          style: TextStyle(
-                            color: kColorPrimary,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
-                    ],
+                      backgroundColor: kColorPrimary,
+                    ),
+                    subtitle: Text(
+                      'Nama : Saka\nTotal Order : 3\nTotal Harga : 15.000',
+                    ),
                   ),
                 ),
                 SizedBox(
-                  height: 150,
-                ),
-                Material(
-                  color: kColorPrimary,
-                  borderRadius: BorderRadius.circular(10),
-                  child: InkWell(
-                    onTap: () {
-                      Get.to(() => PembayaranView());
-                    },
-                    borderRadius: BorderRadius.circular(10),
-                    child: Container(
-                      width: 350,
-                      padding: EdgeInsets.symmetric(
-                        vertical: 10,
-                        horizontal: 20,
-                      ),
-                      child: Text(
-                        'Bayar Sekarang',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.bold,
-                          color: kColor,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
+                  height: 20.0,
                 ),
               ],
             ),

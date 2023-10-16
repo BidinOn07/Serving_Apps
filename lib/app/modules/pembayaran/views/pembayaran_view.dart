@@ -23,59 +23,92 @@ class PembayaranView extends GetView<PembayaranController> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
             children: [
-              ElevatedButton(
-                onPressed: () {
-                  // Logika pembayaran tunai
-                  Navigator.pop(context); // Tutup pop-up setelah pembayaran
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => CashView()),
-                  );
-                },
-                child: Text(
-                  'Pembayaran Tunai',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: kColorPrimary,
-                    fontWeight: FontWeight.bold,
+              Material(
+                color: kColorPrimary,
+                borderRadius: BorderRadius.circular(10),
+                child: InkWell(
+                  onTap: () {
+                    // Logika pembayaran terpisah
+                    Navigator.pop(context); // Tutup pop-up setelah pembayaran
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CashView()),
+                    );
+                  },
+                  borderRadius: BorderRadius.circular(10),
+                  child: Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                    child: Text(
+                      'Pembayaran Tunai',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.bold,
+                        color: kColor,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
               ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  // Logika pembayaran Non - Tunai
-                  Navigator.pop(context); // Tutup pop-up setelah pembayaran
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => CashLessView()),
-                  );
-                },
-                child: Text(
-                  'Pembayaran Non - Tunai',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: kColorPrimary,
-                    fontWeight: FontWeight.bold,
+              SizedBox(height: 10),
+              Material(
+                color: kColorPrimary,
+                borderRadius: BorderRadius.circular(10),
+                child: InkWell(
+                  onTap: () {
+                    // Logika pembayaran terpisah
+                    Navigator.pop(context); // Tutup pop-up setelah pembayaran
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CashLessView()),
+                    );
+                  },
+                  borderRadius: BorderRadius.circular(10),
+                  child: Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                    child: Text(
+                      'Pembayaran Non - Tunai',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.bold,
+                        color: kColor,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
               ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  // Logika pembayaran terpisah
-                  Navigator.pop(context); // Tutup pop-up setelah pembayaran
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SplitBillView()),
-                  );
-                },
-                child: Text(
-                  'Pembayaran Terbagi',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: kColorPrimary,
-                    fontWeight: FontWeight.bold,
+              SizedBox(height: 10),
+              Material(
+                color: kColorPrimary,
+                borderRadius: BorderRadius.circular(10),
+                child: InkWell(
+                  onTap: () {
+                    // Logika pembayaran terpisah
+                    Navigator.pop(context); // Tutup pop-up setelah pembayaran
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SplitBillView()),
+                    );
+                  },
+                  borderRadius: BorderRadius.circular(10),
+                  child: Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                    child: Text(
+                      'Pembayaran Terbagi',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.bold,
+                        color: kColor,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
               ),
@@ -120,19 +153,27 @@ class PembayaranView extends GetView<PembayaranController> {
               ],
             ),
           ),
-          Container(
-            width: double.infinity, // Membuat tombol memenuhi lebar layar
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: ElevatedButton(
-              onPressed: () {
+          Material(
+            color: kColorPrimary,
+            borderRadius: BorderRadius.circular(10),
+            child: InkWell(
+              onTap: () {
                 _showPaymentOptions(context); // Menampilkan pop-up pembayaran
               },
-              child: Text(
-                'Lanjutkan Pembayaran',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: kColorPrimary,
-                  fontWeight: FontWeight.bold,
+              borderRadius: BorderRadius.circular(10),
+              child: Container(
+                // width: 350,
+                width: double.infinity, // Membuat tombol memenuhi lebar layar
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                child: Text(
+                  'Lanjutkan Pembayaran',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.bold,
+                    color: kColor,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ),
