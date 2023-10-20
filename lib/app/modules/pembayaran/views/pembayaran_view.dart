@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kasir/app/modules/pembayaran/views/cash.dart';
 import 'package:kasir/app/modules/pembayaran/views/cashless.dart';
-import 'package:kasir/app/modules/pembayaran/views/splitbill.dart';
 import 'package:kasir/app/utils/constant.dart';
 
 import '../controllers/pembayaran_controller.dart';
@@ -82,36 +81,6 @@ class PembayaranView extends GetView<PembayaranController> {
                   ),
                 ),
               ),
-              SizedBox(height: 10),
-              Material(
-                color: kColorPrimary,
-                borderRadius: BorderRadius.circular(10),
-                child: InkWell(
-                  onTap: () {
-                    // Logika pembayaran terpisah
-                    Navigator.pop(context); // Tutup pop-up setelah pembayaran
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SplitBillView()),
-                    );
-                  },
-                  borderRadius: BorderRadius.circular(10),
-                  child: Container(
-                    width: double.infinity,
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                    child: Text(
-                      'Pembayaran Terbagi',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.bold,
-                        color: kColor,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-              ),
             ],
           ),
         );
@@ -122,9 +91,21 @@ class PembayaranView extends GetView<PembayaranController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Detail Pesanan',
+          style: TextStyle(
+            fontSize: 23,
+            fontWeight: FontWeight.bold,
+            color: kColorPrimary,
+          ),
+        ),
+        backgroundColor: kColor,
+        automaticallyImplyLeading: false,
+        titleSpacing: 30,
+      ),
       body: ListView(
         children: [
-          PembayaranAppBar(),
           Container(
             // height: 900,
             padding: EdgeInsets.only(top: 15),
@@ -146,7 +127,7 @@ class PembayaranView extends GetView<PembayaranController> {
                     children: [
                       _buildInfoRow('No. Meja : ', '01'),
                       _buildInfoRow('Nama : ', 'Saka'),
-                      _buildInfoRow('Total : ', '10.000'),
+                      _buildInfoRow('Total : ', '15.000'),
                     ],
                   ),
                 ),
@@ -208,26 +189,6 @@ class PembayaranView extends GetView<PembayaranController> {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class PembayaranAppBar extends StatelessWidget {
-  const PembayaranAppBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: kColor,
-      padding: EdgeInsets.all(25),
-      child: Text(
-        'Pembayaran',
-        style: TextStyle(
-          fontSize: 23,
-          fontWeight: FontWeight.bold,
-          color: kColorPrimary,
-        ),
       ),
     );
   }

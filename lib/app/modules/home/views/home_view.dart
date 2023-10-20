@@ -12,9 +12,21 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Pesanan',
+          style: TextStyle(
+            fontSize: 23,
+            fontWeight: FontWeight.bold,
+            color: kColorPrimary,
+          ),
+        ),
+        backgroundColor: kColor,
+        automaticallyImplyLeading: false,
+        titleSpacing: 30,
+      ),
       body: ListView(
         children: [
-          HomeAppBar(),
           Container(
             // height: 700,
             padding: EdgeInsets.only(top: 15),
@@ -33,6 +45,7 @@ class HomeView extends GetView<HomeController> {
                       Get.to(() => DetailMenuView());
                     },
                     leading: CircleAvatar(
+                      backgroundColor: kColorPrimary,
                       child: Text(
                         'Meja 1',
                         style: TextStyle(
@@ -41,7 +54,6 @@ class HomeView extends GetView<HomeController> {
                           fontSize: 12,
                         ),
                       ),
-                      backgroundColor: kColorPrimary,
                     ),
                     subtitle: Text(
                       'Nama : Saka\nTotal Order : 3\nTotal Harga : 15.000',
@@ -55,26 +67,6 @@ class HomeView extends GetView<HomeController> {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class HomeAppBar extends StatelessWidget {
-  const HomeAppBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: kColor,
-      padding: EdgeInsets.all(25),
-      child: Text(
-        'Order',
-        style: TextStyle(
-          fontSize: 23,
-          fontWeight: FontWeight.bold,
-          color: kColorPrimary,
-        ),
       ),
     );
   }
