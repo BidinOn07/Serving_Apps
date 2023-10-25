@@ -20,9 +20,22 @@ class LaporanView extends GetView<LaporanController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Laporan Harian',
+          style: TextStyle(
+            fontSize: 23,
+            fontWeight: FontWeight.bold,
+            color: kColorPrimary,
+          ),
+        ),
+        backgroundColor: kColor,
+        automaticallyImplyLeading: false,
+        titleSpacing: 30,
+        toolbarHeight: 80,
+      ),
       body: ListView(
         children: [
-          LaporanBar(),
           Container(
             // height: 700,
             padding: EdgeInsets.only(top: 15),
@@ -182,10 +195,12 @@ class LaporanView extends GetView<LaporanController> {
                           borderRadius: BorderRadius.circular(10),
                           child: Container(
                             width: double.infinity,
+                            height: 50.0,
                             padding: EdgeInsets.symmetric(
                               vertical: 10,
                               horizontal: 20,
                             ),
+                            margin: EdgeInsets.all(3),
                             child: Text(
                               'Kirim Laporan',
                               style: TextStyle(
@@ -206,26 +221,6 @@ class LaporanView extends GetView<LaporanController> {
             ),
           )
         ],
-      ),
-    );
-  }
-}
-
-class LaporanBar extends StatelessWidget {
-  const LaporanBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: kColor,
-      padding: EdgeInsets.all(25),
-      child: Text(
-        'Laporan Harian',
-        style: TextStyle(
-          fontSize: 23,
-          fontWeight: FontWeight.bold,
-          color: kColorPrimary,
-        ),
       ),
     );
   }

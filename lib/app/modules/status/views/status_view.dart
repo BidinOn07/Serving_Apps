@@ -12,9 +12,22 @@ class StatusView extends GetView<StatusController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Status',
+          style: TextStyle(
+            fontSize: 23,
+            fontWeight: FontWeight.bold,
+            color: kColorPrimary,
+          ),
+        ),
+        backgroundColor: kColor,
+        automaticallyImplyLeading: false,
+        titleSpacing: 30,
+        toolbarHeight: 80,
+      ),
       body: ListView(
         children: [
-          StatusBar(),
           Container(
             // height: 700,
             padding: EdgeInsets.only(top: 15),
@@ -27,69 +40,47 @@ class StatusView extends GetView<StatusController> {
             ),
             child: Column(
               children: [
-                Card(
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      child: Text(
-                        'Meja 1',
-                        style: TextStyle(
-                          color: kColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
+                for (int i = 0; i < 4; i++)
+                  Card(
+                    margin: EdgeInsets.symmetric(
+                      vertical: 20,
+                      horizontal: 20,
+                    ),
+                    child: ListTile(
+                      contentPadding: EdgeInsets.symmetric(
+                        vertical: 20,
+                        horizontal: 20,
+                      ),
+                      textColor: kColorPrimary,
+                      onTap: () {},
+                      leading: CircleAvatar(
+                        radius: 30,
+                        backgroundColor: kColorPrimary,
+                        child: Text(
+                          'Meja 1',
+                          style: TextStyle(
+                            color: kColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                          ),
                         ),
                       ),
-                      backgroundColor: kColorPrimary,
-                    ),
-                    subtitle: Text(
-                      'Pesanan : 2\nDiantar : 1\nBelum diantar : 1',
+                      subtitle: Text(
+                        'Pesanan : 2\nDiantar : 1\nBelum diantar : 1',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ),
-                ),
                 SizedBox(
                   height: 20.0,
-                ),
-                Card(
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      child: Text(
-                        'Meja 2',
-                        style: TextStyle(
-                          color: kColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
-                        ),
-                      ),
-                      backgroundColor: kColorPrimary,
-                    ),
-                    subtitle: Text(
-                      'Pesanan : 2\nDiantar : 1\nBelum diantar : 1',
-                    ),
-                  ),
                 ),
               ],
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class StatusBar extends StatelessWidget {
-  const StatusBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: kColor,
-      padding: EdgeInsets.all(25),
-      child: Text(
-        'Status',
-        style: TextStyle(
-          fontSize: 23,
-          fontWeight: FontWeight.bold,
-          color: kColorPrimary,
-        ),
       ),
     );
   }
