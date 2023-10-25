@@ -16,7 +16,7 @@ const kShadow = Colors.grey;
 
 const kColorTemplateMerah = Color(0xffb00020);
 const kColorTemplateHijau = Color(0xff799351);
-const kColorTemplateOren = Color(0xffffa36c);
+const kCoOren = Color(0xffffa36c);
 
 const kBorderRadius = 10.0;
 const kSpacing = 20.0;

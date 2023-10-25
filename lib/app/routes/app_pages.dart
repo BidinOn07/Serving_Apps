@@ -3,8 +3,6 @@ import 'package:kasir/app/routes/login/bindings/login_binding.dart';
 import 'package:kasir/app/routes/login/views/login_view.dart';
 import 'package:kasir/app/utils/mainpage.dart';
 
-import '../modules/detail-menu/bindings/detail_menu_binding.dart';
-import '../modules/detail-menu/views/detail_menu_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/introduction/bindings/introduction_binding.dart';
@@ -45,11 +43,6 @@ class AppPages {
       name: _Paths.HOME,
       page: () => const HomeView(),
       binding: HomeBinding(),
-    ),
-    GetPage(
-      name: _Paths.DETAIL_MENU,
-      page: () => const DetailMenuView(),
-      binding: DetailMenuBinding(),
     ),
     GetPage(
       name: _Paths.LAPORAN,
