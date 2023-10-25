@@ -17,14 +17,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.11.0"
-  badges:
-    dependency: "direct main"
-    description:
-      name: badges
-      sha256: "727580d938b7a1ff47ea42df730d581415606b4224cfa708671c10287f8d3fe6"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.3"
   boolean_selector:
     dependency: transitive
     description:
@@ -192,6 +184,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.6.5"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: "3bc132a9dbce73a7e4a21a17d06e1878839ffbf975568bc875c60537824b0c4d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.18.1"
   introduction_screen:
     dependency: "direct main"
     description:
@@ -248,6 +248,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.1"
+  money_formatter:
+    dependency: "direct main"
+    description:
+      name: money_formatter
+      sha256: "485ec13dced43238018108201a8229c531fd9270e6b2e601e42b4095dd9ac625"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.5"
   path:
     dependency: transitive
     description:
@@ -351,4 +359,4 @@ packages:
     version: "0.1.4-beta"
 sdks:
   dart: ">=3.1.0-185.0.dev <4.0.0"
-  flutter: ">=1.20.0"
+  flutter: ">=2.0.0"
