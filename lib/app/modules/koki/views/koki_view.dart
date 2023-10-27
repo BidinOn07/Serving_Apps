@@ -3,12 +3,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:kasir/app/modules/koki/controllers/koki_controller.dart';
 import 'package:kasir/app/utils/constant.dart';
-import '../../pembayaran/views/pembayaran_view.dart';
-import '../controllers/home_controller.dart';
+import 'koki_menu.dart';
 
-class HomeView extends GetView<HomeController> {
-  const HomeView({Key? key}) : super(key: key);
+class KokiView extends GetView<KokiController> {
+  const KokiView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +53,7 @@ class HomeView extends GetView<HomeController> {
                       ),
                       textColor: kColorPrimary,
                       onTap: () {
-                        Get.to(() => PembayaranView());
+                        Get.to(() => KokiMenu());
                       },
                       leading: CircleAvatar(
                         radius: 30,
@@ -76,9 +76,6 @@ class HomeView extends GetView<HomeController> {
                       ),
                     ),
                   ),
-                SizedBox(
-                  height: 20.0,
-                ),
               ],
             ),
           ),
