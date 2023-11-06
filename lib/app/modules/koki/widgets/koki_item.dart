@@ -6,8 +6,6 @@ import 'package:kasir/app/utils/constant.dart';
 
 import '../models/menu_item.dart';
 
-
-
 class KokiItem extends StatefulWidget {
   final MenuItem menuItem;
 
