@@ -6,13 +6,15 @@ import 'package:kasir/app/controllers/auth_controller.dart';
 import 'package:kasir/app/utils/mainpage.dart';
 import 'package:kasir/app/utils/splash_screen.dart';
 
+import 'app/modules/koki/views/koki_view.dart';
 import 'app/routes/app_pages.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
-    home: MainPage(),
+    home: KokiView(),
+    // home: MainPage(),
   ));
 }
 

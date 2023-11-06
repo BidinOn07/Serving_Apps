@@ -39,7 +39,7 @@ class _MainPageState extends State<MainPage> {
         items: <Widget>[
           Icon(Icons.list_alt_outlined, size: 30, color: Colors.white),
           Icon(Icons.book_outlined, size: 30, color: Colors.white),
-          Icon(Icons.menu_book_outlined, size: 30, color: Colors.white),
+          Icon(Icons.report, size: 30, color: Colors.white),
           //item sesuai kebutuhan
         ],
         onTap: (int index) {
