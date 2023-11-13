@@ -7,7 +7,6 @@ import 'package:kasir/app/modules/koki/views/koki_view.dart';
 import 'package:kasir/app/modules/koki/widgets/koki_item.dart';
 
 import '../../../utils/constant.dart';
-import '../../pembayaran/views/pembayaran_view.dart';
 
 class KokiMenu extends GetView<KokiController> {
   const KokiMenu({Key? key}) : super(key: key);

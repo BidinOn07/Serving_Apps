@@ -7,13 +7,16 @@ import 'package:kasir/app/utils/mainpage.dart';
 import 'package:kasir/app/utils/splash_screen.dart';
 
 import 'app/modules/koki/views/koki_view.dart';
+import 'app/modules/waiters/controllers/waiters_controller.dart';
+import 'app/modules/waiters/views/waiters_view.dart';
 import 'app/routes/app_pages.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
-    home: KokiView(),
+    // home: KokiView(),
+    home: WaitersView(),
     // home: MainPage(),
   ));
 }

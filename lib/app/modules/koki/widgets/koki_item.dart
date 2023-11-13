@@ -92,7 +92,19 @@ class _KokiItemState extends State<KokiItem> {
                           fontWeight: FontWeight.bold,
                           color: kColorPrimary,
                         ),
-                      )
+                      ),
+                      SizedBox(
+                          height:
+                              8), // Tambahkan spasi di antara harga dan deskripsi
+                      Text(
+                        'Deskripsi: ' +
+                            widget.menuItem
+                                .description, // Ganti widget.menuItem.description dengan property yang sesuai untuk deskripsi item
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: kColorPrimary,
+                        ),
+                      ),
                     ],
                   ),
                   Spacer(),
