@@ -1,68 +1,98 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:kasir/app/utils/constant.dart';
 
-class OrderForm extends StatefulWidget {
-  @override
-  _OrderFormState createState() => _OrderFormState();
-}
-
-class _OrderFormState extends State<OrderForm> {
-  String? name;
-  String? orderType;
-  bool isChecked = false;
+class OrderForm extends StatelessWidget {
+  const OrderForm({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          TextFormField(
-            decoration: InputDecoration(labelText: 'Nama Pemesan'),
-            onChanged: (value) {
-              setState(() {
-                name = value;
-              });
-            },
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Buat Pesanan',
+          style: TextStyle(
+            fontSize: 23,
+            fontWeight: FontWeight.bold,
+            color: kColorPrimary,
           ),
-          DropdownButtonFormField<String>(
-            value: orderType,
-            items: ['Dine In', 'Delivery', 'Take Away']
-                .map<DropdownMenuItem<String>>(
-                    (String value) => DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        ))
-                .toList(),
-            onChanged: (value) {
-              setState(() {
-                orderType = value;
-              });
-            },
-            decoration: InputDecoration(labelText: 'Tipe Order'),
+        ),
+        backgroundColor: kColor,
+        automaticallyImplyLeading: false,
+        titleSpacing: 30,
+        toolbarHeight: 80,
+      ),
+      body: Container(
+        padding: EdgeInsets.only(top: 15),
+        decoration: BoxDecoration(
+          color: Color(0xFFEDECF2),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(35),
+            topRight: Radius.circular(35),
           ),
-          Row(
-            children: [
-              Checkbox(
-                value: isChecked,
-                onChanged: (value) {
-                  setState(() {
-                    isChecked = value ?? false;
-                  });
-                },
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Nama Pemesan',
               ),
-              Text('Sudah Diantar'),
-            ],
-          ),
-          ElevatedButton(
-            onPressed: isChecked
-                ? null
-                : () {
-                    // Logika untuk membuat QR code
+            ),
+            SizedBox(height: 20),
+            DropdownButtonFormField<String>(
+              decoration: InputDecoration(
+                labelText: 'Tipe Order',
+              ),
+              value: 'Dine In',
+              items: ['Dine In', 'Delivery', 'Take Away']
+                  .map((type) => DropdownMenuItem<String>(
+                        value: type,
+                        child: Text(type),
+                      ))
+                  .toList(),
+              onChanged: (value) {
+                // Tangani perubahan nilai dropdown
+              },
+            ),
+            SizedBox(height: 20),
+            Row(
+              children: [
+                Checkbox(
+                  value: false,
+                  onChanged: (value) {
+                    // Tangani perubahan nilai checkbox
                   },
-            child: Text('Buat QR Code'),
-          ),
-        ],
+                ),
+                Text('Ceklis (Bisa Diubah)'),
+              ],
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Pindah ke halaman QR Code
+                Get.to(() => QRCodeView());
+              },
+              child: Text('Buat Pesanan Sekarang'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class QRCodeView extends StatelessWidget {
+  // Implementasikan tampilan QR Code sesuai kebutuhan
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('QR Code'),
+        // Tambahkan konfigurasi tambahan untuk tampilan QR Code
+      ),
+      body: Center(
+        child: Text('Ini adalah tampilan QR Code'),
       ),
     );
   }

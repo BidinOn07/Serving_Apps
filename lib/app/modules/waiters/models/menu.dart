@@ -1,11 +1,11 @@
-class Menu {
+class MenuOrder {
   final String photo;
   final String name;
   final String price;
   final String description;
   int quantity;
 
-  Menu({
+  MenuOrder({
     required this.photo,
     required this.name,
     required this.price,
@@ -14,19 +14,19 @@ class Menu {
   }) : assert(description != null);
 }
 
-Menu item1 = Menu(
+MenuOrder item1 = MenuOrder(
     photo: 'assets/images/1.png',
     name: 'Kopi Susu',
     price: '15.000',
     quantity: 0,
     description: '');
-Menu item2 = Menu(
+MenuOrder item2 = MenuOrder(
     photo: 'assets/images/2.png',
     name: 'Teh Manis',
     price: '10.000',
     quantity: 0,
     description: '');
-Menu item3 = Menu(
+MenuOrder item3 = MenuOrder(
     photo: 'assets/images/3.png',
     name: 'Mie Goreng',
     price: '20.000',

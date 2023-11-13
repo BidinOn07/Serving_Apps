@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:kasir/app/modules/waiters/controllers/waiters_controller.dart';
 import 'package:kasir/app/modules/waiters/views/waiters_view.dart';
 import 'package:kasir/app/modules/waiters/widgets/waiters_item.dart';
+
 
 import '../../../utils/constant.dart';
 import '../models/menu.dart';
@@ -42,9 +42,9 @@ class OrderItem extends GetView<WaitersController> {
               ),
               child: Column(
                 children: [
-                  WaitersItem(menu: item1),
-                  WaitersItem(menu: item2),
-                  WaitersItem(menu: item3),
+                  WaitersItem(menuOrder: item1,),
+                  WaitersItem(menuOrder: item2,),
+                  WaitersItem(menuOrder: item3,),
                   Container(
                     // decoration: BoxDecoration(
                     //   borderRadius: BorderRadius.circular(10),

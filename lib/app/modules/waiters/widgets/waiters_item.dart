@@ -2,14 +2,15 @@
 
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:kasir/app/modules/waiters/models/menu.dart';
 import 'package:kasir/app/utils/constant.dart';
 
+import '../models/menu.dart';
+
 class WaitersItem extends StatefulWidget {
-  final Menu menu;
+  final MenuOrder menuOrder;
 
   const WaitersItem({
-    required this.menu,
+    required this.menuOrder,
     Key? key,
   }) : super(key: key);
 
@@ -64,7 +65,7 @@ class _WaitersItemState extends State<WaitersItem> {
                     width: 20,
                   ),
                   Image(
-                    image: AssetImage(widget.menu.photo),
+                    image: AssetImage(widget.menuOrder.photo),
                     width: 80,
                     height: 80,
                   ),
@@ -76,8 +77,8 @@ class _WaitersItemState extends State<WaitersItem> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        widget.menu
-                            .name, // Gunakan widget.menu.name untuk menampilkan nama item
+                        widget.menuOrder
+                            .name, // Gunakan widget.menuOrder.name untuk menampilkan nama item
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -85,8 +86,8 @@ class _WaitersItemState extends State<WaitersItem> {
                         ),
                       ),
                       Text(
-                        widget.menu
-                            .price, // Gunakan widget.menu.price untuk menampilkan harga item
+                        widget.menuOrder
+                            .price, // Gunakan widget.menuOrder.price untuk menampilkan harga item
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -107,8 +108,8 @@ class _WaitersItemState extends State<WaitersItem> {
                         ),
                         style: TextStyle(fontSize: 5, color: kColorPrimary),
                         // onChanged: (value) {
-                        //   // Update deskripsi menu saat pengguna memasukkan teks
-                        //   widget.menu.description = value;
+                        //   // Update deskripsi menuOrder saat pengguna memasukkan teks
+                        //   widget.menuOrder.description = value;
                         // },
                       ),
                     ],
