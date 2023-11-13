@@ -12,6 +12,8 @@ import '../modules/pembayaran/bindings/pembayaran_binding.dart';
 import '../modules/pembayaran/views/pembayaran_view.dart';
 import '../modules/status/bindings/status_binding.dart';
 import '../modules/status/views/status_view.dart';
+import '../modules/waiters/bindings/waiters_binding.dart';
+import '../modules/waiters/views/waiters_view.dart';
 import '../utils/mainpage.dart';
 import 'login/bindings/login_binding.dart';
 import 'login/views/login_view.dart';
@@ -65,6 +67,11 @@ class AppPages {
       name: _Paths.KOKI,
       page: () => const KokiView(),
       binding: KokiBinding(),
+    ),
+    GetPage(
+      name: _Paths.WAITERS,
+      page: () => const WaitersView(),
+      binding: WaitersBinding(),
     ),
   ];
 }

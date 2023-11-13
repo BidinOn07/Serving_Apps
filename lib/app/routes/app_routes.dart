@@ -15,6 +15,7 @@ abstract class Routes {
   static const STATUS = _Paths.STATUS;
   static const PEMBAYARAN = _Paths.PEMBAYARAN;
   static const KOKI = _Paths.KOKI;
+  static const WAITERS = _Paths.WAITERS;
 }
 
 abstract class _Paths {
@@ -29,4 +30,5 @@ abstract class _Paths {
   static const STATUS = '/status';
   static const PEMBAYARAN = '/pembayaran';
   static const KOKI = '/koki';
+  static const WAITERS = '/waiters';
 }
