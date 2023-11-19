@@ -8,9 +8,13 @@ import '../models/menu.dart';
 
 class WaitersItem extends StatefulWidget {
   final MenuOrder menuOrder;
+  final bool isSelected;
+  final ValueChanged<String> onSelect;
 
   const WaitersItem({
     required this.menuOrder,
+    required this.isSelected,
+    required this.onSelect,
     Key? key,
   }) : super(key: key);
 
@@ -29,7 +33,7 @@ class _WaitersItemState extends State<WaitersItem> {
     return Column(
       children: [
         Container(
-          height: 120,
+          height: 180,
           margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
@@ -39,7 +43,7 @@ class _WaitersItemState extends State<WaitersItem> {
           child: GestureDetector(
             onTap: () {
               setState(() {
-                isRadioActive = !isRadioActive;
+                widget.onSelect(widget.menuOrder.id);
               });
             },
             child: Padding(
@@ -51,15 +55,15 @@ class _WaitersItemState extends State<WaitersItem> {
                     height: 24,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: isRadioActive ? kColorPrimary : kShadow,
+                      color: widget.isSelected ? kColorPrimary : kShadow,
                     ),
-                    child: isRadioActive
+                    child: widget.isSelected
                         ? Icon(
                             Icons.check,
                             size: 18,
                             color: kColor,
                           )
-                        : null, // Tampilkan ikon ceklis jika radio button aktif
+                        : null,
                   ),
                   SizedBox(
                     width: 20,
@@ -97,20 +101,17 @@ class _WaitersItemState extends State<WaitersItem> {
                       SizedBox(
                           height:
                               8), // Tambahkan spasi di antara harga dan deskripsi
-                      TextFormField(
-                        // controller: descriptionController,
+                      Expanded(
+                        child: TextField(
+                        controller: descriptionController,
+                        maxLines: 5,
                         decoration: InputDecoration(
-                          labelText: 'Deskripsi',
-                          labelStyle: TextStyle(color: kColorPrimary),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: kColorPrimary),
-                          ),
+                          hintText: 'deskripsi',
+                          border: OutlineInputBorder(),
+                          contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
                         ),
-                        style: TextStyle(fontSize: 5, color: kColorPrimary),
-                        // onChanged: (value) {
-                        //   // Update deskripsi menuOrder saat pengguna memasukkan teks
-                        //   widget.menuOrder.description = value;
-                        // },
+                        
+                        ),
                       ),
                     ],
                   ),

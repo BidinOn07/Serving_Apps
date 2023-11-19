@@ -18,10 +18,10 @@ class HomeView extends GetView<HomeController> {
           style: TextStyle(
             fontSize: 23,
             fontWeight: FontWeight.bold,
-            color: kColorPrimary,
+            color: kColor,
           ),
         ),
-        backgroundColor: kColor,
+        backgroundColor: kColorInfo,
         automaticallyImplyLeading: false,
         titleSpacing: 30,
         toolbarHeight: 80,

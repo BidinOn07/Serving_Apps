@@ -1,9 +1,17 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kasir/app/utils/constant.dart';
 
-class OrderForm extends StatelessWidget {
+class OrderForm extends StatefulWidget {
   const OrderForm({Key? key}) : super(key: key);
+  @override
+  State<OrderForm> createState() => _OrderFormState();
+}
+class _OrderFormState extends State<OrderForm> {
+  String? selectedOrderType;
+  bool isCheckboxChecked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -14,11 +22,11 @@ class OrderForm extends StatelessWidget {
           style: TextStyle(
             fontSize: 23,
             fontWeight: FontWeight.bold,
-            color: kColorPrimary,
+            color: kColor,
           ),
         ),
-        backgroundColor: kColor,
-        automaticallyImplyLeading: false,
+        backgroundColor: kColorInfo,
+        // automaticallyImplyLeading: false,
         titleSpacing: 30,
         toolbarHeight: 80,
       ),
@@ -37,14 +45,16 @@ class OrderForm extends StatelessWidget {
             TextField(
               decoration: InputDecoration(
                 labelText: 'Nama Pemesan',
+                contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
               ),
+              
             ),
             SizedBox(height: 20),
             DropdownButtonFormField<String>(
               decoration: InputDecoration(
                 labelText: 'Tipe Order',
               ),
-              value: 'Dine In',
+              value: selectedOrderType,
               items: ['Dine In', 'Delivery', 'Take Away']
                   .map((type) => DropdownMenuItem<String>(
                         value: type,
@@ -52,27 +62,31 @@ class OrderForm extends StatelessWidget {
                       ))
                   .toList(),
               onChanged: (value) {
-                // Tangani perubahan nilai dropdown
+                setState(() {
+                  selectedOrderType = value!;
+                });
               },
             ),
             SizedBox(height: 20),
             Row(
               children: [
                 Checkbox(
-                  value: false,
-                  onChanged: (value) {
-                    // Tangani perubahan nilai checkbox
-                  },
+                  value: isCheckboxChecked,
+                onChanged: (value) {
+                  setState(() {
+                    isCheckboxChecked = value ?? false;
+                  });
+                },
                 ),
-                Text('Ceklis (Bisa Diubah)'),
               ],
             ),
             SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {
-                // Pindah ke halaman QR Code
-                Get.to(() => QRCodeView());
-              },
+              onPressed: isCheckboxChecked
+                ? () {
+                    Get.to(() => QRCodeView());
+                  }
+                : null,
               child: Text('Buat Pesanan Sekarang'),
             ),
           ],
@@ -80,17 +94,30 @@ class OrderForm extends StatelessWidget {
       ),
     );
   }
+  
+  
 }
 
 class QRCodeView extends StatelessWidget {
+  const QRCodeView({super.key});
+
   // Implementasikan tampilan QR Code sesuai kebutuhan
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('QR Code'),
-        // Tambahkan konfigurasi tambahan untuk tampilan QR Code
-      ),
+        title: Text(
+          'QR Code',
+        style: TextStyle(
+            fontSize: 23,
+            fontWeight: FontWeight.bold,
+            color: kColor,
+          ),
+        ),
+        backgroundColor: kColorInfo,
+        // automaticallyImplyLeading: false,
+        toolbarHeight: 80,
+        ),
       body: Center(
         child: Text('Ini adalah tampilan QR Code'),
       ),
