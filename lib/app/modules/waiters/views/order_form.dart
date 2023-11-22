@@ -47,7 +47,6 @@ class _OrderFormState extends State<OrderForm> {
                 labelText: 'Nama Pemesan',
                 contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
               ),
-              
             ),
             SizedBox(height: 20),
             DropdownButtonFormField<String>(
@@ -68,7 +67,7 @@ class _OrderFormState extends State<OrderForm> {
               },
             ),
             SizedBox(height: 20),
-            Row(
+            Column(
               children: [
                 Checkbox(
                   value: isCheckboxChecked,
