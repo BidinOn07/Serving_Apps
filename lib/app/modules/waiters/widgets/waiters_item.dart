@@ -33,7 +33,7 @@ class _WaitersItemState extends State<WaitersItem> {
     return Column(
       children: [
         Container(
-          height: 180,
+          height: 150,
           margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
@@ -101,17 +101,9 @@ class _WaitersItemState extends State<WaitersItem> {
                       SizedBox(
                           height:
                               8), // Tambahkan spasi di antara harga dan deskripsi
-                      Expanded(
-                        child: TextField(
-                        controller: descriptionController,
-                        maxLines: 5,
-                        decoration: InputDecoration(
-                          hintText: 'deskripsi',
-                          border: OutlineInputBorder(),
-                          contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-                        ),
-                        
-                        ),
+                      Text('deskripsi : ', style: TextStyle(
+                        color: kColorPrimary, 
+                        fontWeight: FontWeight.bold,),
                       ),
                     ],
                   ),
