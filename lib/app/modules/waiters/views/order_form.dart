@@ -9,6 +9,7 @@ class OrderForm extends StatefulWidget {
   @override
   State<OrderForm> createState() => _OrderFormState();
 }
+
 class _OrderFormState extends State<OrderForm> {
   String? selectedOrderType;
   bool isCheckboxChecked = false;
@@ -45,7 +46,8 @@ class _OrderFormState extends State<OrderForm> {
             TextField(
               decoration: InputDecoration(
                 labelText: 'Nama Pemesan',
-                contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 8, horizontal: 12),
               ),
             ),
             SizedBox(height: 20),
@@ -70,31 +72,37 @@ class _OrderFormState extends State<OrderForm> {
             Column(
               children: [
                 Checkbox(
+                  checkColor: kColor,
+                  activeColor: kColorPrimary,
                   value: isCheckboxChecked,
-                onChanged: (value) {
-                  setState(() {
-                    isCheckboxChecked = value ?? false;
-                  });
-                },
+                  onChanged: (value) {
+                    setState(() {
+                      isCheckboxChecked = value ?? false;
+                    });
+                  },
                 ),
               ],
             ),
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: isCheckboxChecked
-                ? () {
-                    Get.to(() => QRCodeView());
-                  }
-                : null,
-              child: Text('Buat Pesanan Sekarang'),
+                  ? () {
+                      Get.to(() => QRCodeView());
+                    }
+                  : null,
+              child: Text(
+                'Buat Pesanan Sekarang',
+                style: TextStyle(color: kColor),
+              ),
+              style: ElevatedButton.styleFrom(
+                primary: kColorPrimary,
+              ),
             ),
           ],
         ),
       ),
     );
   }
-  
-  
 }
 
 class QRCodeView extends StatelessWidget {
@@ -107,7 +115,7 @@ class QRCodeView extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'QR Code',
-        style: TextStyle(
+          style: TextStyle(
             fontSize: 23,
             fontWeight: FontWeight.bold,
             color: kColor,
@@ -116,7 +124,7 @@ class QRCodeView extends StatelessWidget {
         backgroundColor: kColorInfo,
         // automaticallyImplyLeading: false,
         toolbarHeight: 80,
-        ),
+      ),
       body: Center(
         child: Text('Ini adalah tampilan QR Code'),
       ),

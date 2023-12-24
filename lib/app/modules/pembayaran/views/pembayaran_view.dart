@@ -30,12 +30,11 @@ class _PembayaranViewState extends State<PembayaranView> {
           style: TextStyle(
             fontSize: 23,
             fontWeight: FontWeight.bold,
-            color: kColorPrimary,
+            color: kColor,
           ),
         ),
-        backgroundColor: kColor,
-        automaticallyImplyLeading: false,
-        titleSpacing: 30,
+        backgroundColor: kColorInfo,
+        // automaticallyImplyLeading: false,
         toolbarHeight: 80,
       ),
       body: ListView(
@@ -211,27 +210,46 @@ class _PembayaranViewState extends State<PembayaranView> {
                         borderRadius: BorderRadius.circular(10),
                         child: InkWell(
                           onTap: () {
-                            // Tampilkan dialog ketika tombol ditekan
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  title: Text('Info'),
-                                  content: Text('Pembayaran Berhasil'),
-                                  actions: <Widget>[
-                                    TextButton(
-                                      child: Text('OK'),
-                                      onPressed: () {
-                                        // Tutup dialog ketika OK ditekan
-                                        Navigator.of(context).pop();
-                                        // Navigasi kembali ke MainPage setelah dialog ditutup
-                                        Get.off(() => MainPage());
-                                      },
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
+                            if (jumlahPembayaranController.text.isEmpty) {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Text('Error'),
+                                    content: Text(
+                                        'Pembayaran tidak dapat dilakukan. Masukkan jumlah pembayaran!'),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        child: Text('OK'),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            } else {
+                              // Tampilkan dialog ketika pembayaran berhasil
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Text('Info'),
+                                    content: Text('Pembayaran Berhasil'),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        child: Text('OK'),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                          Get.off(() => MainPage());
+                                        },
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            }
                           },
                           borderRadius: BorderRadius.circular(10),
                           child: Container(

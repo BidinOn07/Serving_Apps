@@ -20,12 +20,12 @@ class KokiMenu extends GetView<KokiController> {
           style: TextStyle(
             fontSize: 23,
             fontWeight: FontWeight.bold,
-            color: kColorPrimary,
+            color: kColor,
           ),
         ),
-        backgroundColor: kColor,
-        automaticallyImplyLeading: false,
-        titleSpacing: 30,
+        backgroundColor: kColorInfo,
+        // automaticallyImplyLeading: false,
+        toolbarHeight: 80,
       ),
       body: SafeArea(
         child: ListView(

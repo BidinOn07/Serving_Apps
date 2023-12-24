@@ -76,36 +76,42 @@ class _WaitersItemState extends State<WaitersItem> {
                   SizedBox(
                     width: 10,
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        widget.menuOrder
-                            .name, // Gunakan widget.menuOrder.name untuk menampilkan nama item
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: kColorPrimary,
+                  Flexible(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          widget.menuOrder
+                              .name, // Gunakan widget.menuOrder.name untuk menampilkan nama item
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: kColorPrimary,
+                          ),
                         ),
-                      ),
-                      Text(
-                        widget.menuOrder
-                            .price, // Gunakan widget.menuOrder.price untuk menampilkan harga item
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: kColorPrimary,
+                        Text(
+                          widget.menuOrder
+                              .price, // Gunakan widget.menuOrder.price untuk menampilkan harga item
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: kColorPrimary,
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                          height:
-                              8), // Tambahkan spasi di antara harga dan deskripsi
-                      Text('deskripsi : ', style: TextStyle(
-                        color: kColorPrimary, 
-                        fontWeight: FontWeight.bold,),
-                      ),
-                    ],
+                        SizedBox(
+                            height:
+                                8), // Tambahkan spasi di antara harga dan deskripsi
+                        Text(
+                          'deskripsi : ',
+                          style: TextStyle(
+                            color: kColorPrimary,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        TextField()
+                      ],
+                    ),
                   ),
                   Spacer(),
                   Row(
